@@ -5,3 +5,7 @@
 Maze::Maze(int mazeLength, int mazeWidth) : mazeLength(mazeLength), mazeWidth(mazeWidth) {
 	
 }
+
+void Maze::generate() {
+	
+}
