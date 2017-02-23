@@ -5,16 +5,18 @@
 
 #include "Tile.h"
 #include <vector>
+#include <string>
+#include <iostream>
 
 class Maze {
 public:
+	Maze();
+	
 	Maze(int mazeLength, int mazeWidth);
 	
-	//Maze(int mazeLength, int mazeWidth, int startRow, int startCol, int endRow, int endCol);
+	void inputMaze();
 	
-	//void chooseStartEnd();
-	
-	void generate(int startRow, int startCol, int endRow, int endCol);
+	void generateMaze(int startRow, int startCol, int endRow, int endCol);
 	
 	Tile* getStart();
 	Tile* getEnd();

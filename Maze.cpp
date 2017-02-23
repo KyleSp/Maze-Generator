@@ -2,25 +2,51 @@
 
 #include "Maze.h"
 
+Maze::Maze() {
+	
+}
+
 Maze::Maze(int mazeLength, int mazeWidth) :
 	mazeLength(mazeLength), mazeWidth(mazeWidth) {
 }
 
-/*
-Maze::Maze(int mazeLength, int mazeWidth, int startRow, int startCol, int endRow,
-	int endCol) : mazeLength(mazeLength), mazeWidth(mazeWidth) {
-	//start = new Tile(startRow, startCol, -1);
-	//end = new Tile(endRow, endCol, -1);
-}
-*/
-
-/*
-void Maze::chooseStartEnd() {
+//cin input of maze (using tile types)
+void Maze::inputMaze() {
+	//read in maze size
+	std::string rowSize, colSize;
 	
+	std::cin >> rowSize;
+	std::cin >> colSize;
+	
+	//TODO: error checking
+	
+	//read in start and end tiles
+	std::string startRowS, startColS, endRowS, endColS;
+	
+	std::cin >> startRowS;
+	std::cin >> startColS;
+	std::cin >> endRowS;
+	std::cin >> endColS;
+	
+	//read in grid
+	std::vector<Tile> row;
+	std::string tileType;
+	for (int r = 0; r < mazeLength; ++r) {
+		row.erase(row.begin(), row.end());		//reset row vector
+		for (int c = 0; c < mazeWidth; ++c) {
+			std::cin >> tileType;
+			//add to row vector
+			row.push_back(Tile(r, c, std::atoi(tileType.c_str())));
+		}
+		maze.push_back(row);					//add row vector to maze
+	}
+	
+	//set start and end tiles
+	start = &maze[std::atoi(startRowS.c_str())][std::atoi(startColS.c_str())];
+	end = &maze[std::atoi(endRowS.c_str())][std::atoi(endColS.c_str())];
 }
-*/
 
-void Maze::generate(int startRow, int startCol, int endRow, int endCol) {
+void Maze::generateMaze(int startRow, int startCol, int endRow, int endCol) {
 	//create grid
 	std::vector<Tile> row;
 	for (int r = 0; r < mazeLength; ++r) {
