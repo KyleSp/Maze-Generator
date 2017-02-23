@@ -3,22 +3,17 @@
 #ifndef MAZE_H
 #define MAZE_H
 
+#include "Tile.h"
+
 class Maze {
 public:
-	
-	
+	Maze(int mazeLength, int mazeWidth);
 	
 private:
-	/*
-	struct Tile {
-		int row;
-		int col;
-		int val;
-	};
-	*/
+	std::vector<std::vector<Tile> > maze;
 	
-	int length;
-	int width;
+	int mazeLength;
+	int mazeWidth;
 };
 
 #endif
