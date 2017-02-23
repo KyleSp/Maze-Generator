@@ -4,12 +4,9 @@
 
 int main() {
 	
-	const int length = 10;
-	const int width = 10;
+	Maze maze(LENGTH, WIDTH);
 	
-	Maze maze(length, width);
-	
-	maze.generate();
+	maze.generate(START_ROW, START_COL, END_ROW, END_COL);
 	
 	return 0;
 }
