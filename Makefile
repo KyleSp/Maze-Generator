@@ -27,8 +27,11 @@ release: all
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
-
+ifeq ($(EXECUTABLE), executable)
+	$(CXX) $(CXXFLAGS) $(OBJECTS)
+else
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(EXECUTABLE)
+endif
 
 #rule for making object files
 %.o: %.cpp
