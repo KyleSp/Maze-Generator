@@ -10,7 +10,14 @@ class Maze {
 public:
 	Maze(int mazeLength, int mazeWidth);
 	
+	Maze(int mazeLength, int mazeWidth, int startRow, int startCol, int endRow, int endCol);
+	
+	void chooseStartEnd();
+	
 	void generate();
+	
+	Tile& getStart();
+	Tile& getEnd();
 	
 private:
 	std::vector<std::vector<Tile> > maze;
