@@ -7,6 +7,7 @@ class Maze {
 public:
 	
 	
+	
 private:
 	struct Tile {
 		int row;
