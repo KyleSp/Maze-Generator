@@ -15,8 +15,8 @@ private:
 		int val;
 	};
 	
-	int length;
-	int width;
+	int mazeLength;
+	int mazeWidth;
 };
 
 #endif
