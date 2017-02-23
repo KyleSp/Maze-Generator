@@ -9,14 +9,16 @@ public:
 	
 	
 private:
+	/*
 	struct Tile {
 		int row;
 		int col;
 		int val;
 	};
+	*/
 	
-	int mazeLength;
-	int mazeWidth;
+	int length;
+	int width;
 };
 
 #endif
