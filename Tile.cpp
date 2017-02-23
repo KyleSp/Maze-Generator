@@ -2,7 +2,7 @@
 
 #include "Tile.h"
 
-Tile::Tile(int row, int col, int type) : row(row), col(col), val(type) {
+Tile::Tile(int row, int col, int type) : row(row), col(col), type(type) {
 	val = 0;
 }
 

@@ -8,6 +8,7 @@ Each step away from start increases value by 1
 #ifndef SOLVER_H
 #define SOLVER_H
 
+#include "Tile.h"
 #include <queue>
 
 class Solver {
@@ -16,8 +17,8 @@ public:
 	
 private:
 	struct tileComp {
-		bool operator()(const Tile &t1, const Tile &t2) {
-			return false;	//TODO
+		bool operator()(Tile &t1, Tile &t2) {
+			return t1.getVal() < t2.getVal();		//TODO
 		}
 	};
 	

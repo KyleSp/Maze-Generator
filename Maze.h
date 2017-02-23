@@ -14,8 +14,8 @@ public:
 	
 private:
 	std::vector<std::vector<Tile> > maze;
-	Tile start;
-	Tile end;
+	Tile* start;
+	Tile* end;
 	
 	int mazeLength;
 	int mazeWidth;
