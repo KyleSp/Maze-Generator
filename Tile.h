@@ -18,6 +18,8 @@ public:
 	
 	bool getVisited();
 	
+	bool getDir(int dir);
+	
 	void setLeft(bool left);
 	void setTop(bool top);
 	void setBottom(bool bottom);

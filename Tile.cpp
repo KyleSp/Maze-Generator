@@ -39,6 +39,24 @@ bool Tile::getVisited() {
 	return visited;
 }
 
+bool Tile::getDir(int dir) {
+	if (dir == 0) {
+		//left
+		return left;
+	} else if (dir == 1) {
+		//top
+		return top;
+	} else if (dir == 2) {
+		//bottom
+		return bottom;
+	} else if (dir == 3) {
+		//right
+		return right;
+	}
+	
+	return false;
+}
+
 void Tile::setLeft(bool left) {
 	this->left = left;
 }
