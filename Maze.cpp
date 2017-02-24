@@ -76,7 +76,27 @@ void Maze::inputMaze(int rowSize, int colSize, int startRow, int startCol,
 		maze.push_back(row);					//add row vector to maze
 	}
 	
+	srand((unsigned) time(NULL));
 	generateMaze();
+	
+	std::cerr << "\n";
+	for (int r = 0; r < mazeLength; ++r) {
+		for (int c = 0; c < mazeWidth; ++c) {
+			std::cerr << maze[r][c].getVal() << "\t";
+		}
+		std::cerr << "\n";
+	}
+	std::cerr << "\n";
+	
+	//set booleans for adjacents based on input maze
+	resolveAdjs();
+	
+	//reset values for each tile
+	for (int r = 0; r < mazeLength; ++r) {
+		for (int c = 0; c < mazeWidth; ++c) {
+			maze[r][c].setVal(0);
+		}
+	}
 	
 	//set start and end tiles
 	start = &maze[startRow][startCol];
@@ -117,7 +137,15 @@ void Maze::resolveAdjs() {
 }
 
 void Maze::generateMaze() {
-	
+	for (int r = 0; r < mazeLength; ++r) {
+		for (int c = 0; c < mazeWidth; ++c) {
+			int r = rand() % 10 + 1;	//1 through 10 inclusive
+			if (r <= 7) {
+				//70% chance
+				maze[r][c].setVal(1);
+			}
+		}
+	}
 }
 
 Tile* Maze::getTile(int row, int col) {

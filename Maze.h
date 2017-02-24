@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 class Maze {
 public:

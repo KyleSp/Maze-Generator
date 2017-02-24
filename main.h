@@ -8,8 +8,8 @@
 #include <iostream>
 using namespace std;
 
-const int LENGTH = 10;
-const int WIDTH = 10;
+const int LENGTH = 8;
+const int WIDTH = 8;
 
 const int START_ROW = LENGTH / 2;
 const int START_COL = WIDTH / 2;
