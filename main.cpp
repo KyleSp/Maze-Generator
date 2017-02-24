@@ -8,5 +8,9 @@ int main() {
 	
 	maze.generateMaze(START_ROW, START_COL, END_ROW, END_COL);
 	
+	Solver solver(maze.getMaze());
+	
+	solver.solve();
+	
 	return 0;
 }

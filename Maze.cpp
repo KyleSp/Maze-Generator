@@ -36,7 +36,9 @@ void Maze::inputMaze() {
 		for (int c = 0; c < mazeWidth; ++c) {
 			std::cin >> tileType;
 			//add to row vector
-			row.push_back(Tile(r, c, std::atoi(tileType.c_str())));
+			//row.push_back(Tile(r, c, std::atoi(tileType.c_str())));
+			//TODO: implement tile type numbers
+			row.push_back(Tile(r, c));
 		}
 		maze.push_back(row);					//add row vector to maze
 	}
@@ -52,7 +54,8 @@ void Maze::generateMaze(int startRow, int startCol, int endRow, int endCol) {
 	for (int r = 0; r < mazeLength; ++r) {
 		row.erase(row.begin(), row.end());		//reset row vector
 		for (int c = 0; c < mazeWidth; ++c) {
-			row.push_back(Tile(r, c, -1));		//add to row vector
+			//row.push_back(Tile(r, c, -1));	//add to row vector
+			row.push_back(Tile(r, c));
 		}
 		maze.push_back(row);					//add row vector to maze
 	}
@@ -62,10 +65,22 @@ void Maze::generateMaze(int startRow, int startCol, int endRow, int endCol) {
 	end = &maze[endRow][endCol];
 }
 
+Tile* Maze::getTile(int row, int col) {
+	if (row < 0 || row >= mazeLength || col < 0 || col >= mazeWidth) {
+		return nullptr;
+	}
+	
+	return &maze[row][col];
+}
+
 Tile* Maze::getStart() {
 	return start;
 }
 
 Tile* Maze::getEnd() {
 	return end;
+}
+
+Maze* Maze::getMaze() {
+	return this;
 }

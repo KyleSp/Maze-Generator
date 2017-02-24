@@ -4,6 +4,7 @@
 #define MAIN_H
 
 #include "Maze.h"
+#include "Solver.h"
 #include <iostream>
 using namespace std;
 

@@ -18,8 +18,12 @@ public:
 	
 	void generateMaze(int startRow, int startCol, int endRow, int endCol);
 	
+	Tile* getTile(int row, int col);
+	
 	Tile* getStart();
 	Tile* getEnd();
+	
+	Maze* getMaze();
 	
 private:
 	std::vector<std::vector<Tile> > maze;
