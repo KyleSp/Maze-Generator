@@ -12,11 +12,9 @@ class Maze {
 public:
 	Maze();
 	
-	Maze(int mazeLength, int mazeWidth);	//TODO: remove mazeLength, mazeWidth
-	
 	void inputMaze();
 	
-	void generateMaze(int startRow, int startCol, int endRow, int endCol);
+	void inputMaze(int rowSize, int colSize, int startRow, int startCol, int endRow, int endCol);
 	
 	Tile* getTile(int row, int col);
 	
@@ -37,6 +35,8 @@ private:
 	int mazeWidth;
 	
 	void resolveAdjs();
+	
+	void generateMaze();
 };
 
 #endif

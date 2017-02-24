@@ -4,12 +4,11 @@
 
 int main() {
 	
-	//Maze maze(LENGTH, WIDTH);
-	Maze maze(5, 5);
+	Maze maze;
 	
 	maze.inputMaze();
 	
-	//maze.generateMaze(START_ROW, START_COL, END_ROW, END_COL);
+	//maze.inputMaze(LENGTH, WIDTH, START_ROW, START_COL, END_ROW, END_COL);
 	
 	Solver solver(maze.getMaze());
 	
