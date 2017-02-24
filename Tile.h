@@ -6,27 +6,16 @@
 class Tile {
 public:
 	Tile(int row, int col);
+	Tile(int row, int col, int val);
 	
 	int getRow();
 	int getCol();
 	int getVal();
-	
-	bool getLeft();
-	bool getTop();
-	bool getBottom();
-	bool getRight();
-	
 	bool getVisited();
-	
 	bool getDir(int dir);
 	
-	void setLeft(bool left);
-	void setTop(bool top);
-	void setBottom(bool bottom);
-	void setRight(bool right);
-	
+	void setDir(int dir, bool val);
 	void setVal(int val);
-	
 	void setVisited();
 private:
 	int row;			//row number on map

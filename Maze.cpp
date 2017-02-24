@@ -38,9 +38,25 @@ void Maze::inputMaze() {
 			//add to row vector
 			//row.push_back(Tile(r, c, std::atoi(tileType.c_str())));
 			//TODO: implement tile type numbers
-			row.push_back(Tile(r, c));
+			if (atoi(tileType.c_str())) {
+				row.push_back(Tile(r, c, 1));
+			} else {
+				row.push_back(Tile(r, c));
+			}
+			
+			//row.push_back(Tile(r, c));
 		}
 		maze.push_back(row);					//add row vector to maze
+	}
+	
+	//set booleans for adjacents based on input maze
+	resolveAdjs();
+	
+	//reset values for each tile
+	for (int r = 0; r < mazeLength; ++r) {
+		for (int c = 0; c < mazeWidth; ++c) {
+			maze[r][c].setVal(0);
+		}
 	}
 	
 	//set start and end tiles
@@ -65,6 +81,39 @@ void Maze::generateMaze(int startRow, int startCol, int endRow, int endCol) {
 	end = &maze[endRow][endCol];
 }
 
+void Maze::resolveAdjs() {
+	Tile* left;
+	Tile* top;
+	Tile* bottom;
+	Tile* right;
+	
+	for (int r = 0; r < mazeLength; ++r) {
+		for (int c = 0; c < mazeWidth; ++c) {
+			left = getTile(r, c - 1);
+			top = getTile(r - 1, c);
+			bottom = getTile(r + 1, c);
+			right = getTile(r, c + 1);
+			
+			if (left && left->getVal()) {
+				//left
+				maze[r][c].setDir(0, true);
+			}
+			if (top && top->getVal()) {
+				//top
+				maze[r][c].setDir(1, true);
+			}
+			if (bottom && bottom->getVal()) {
+				//bottom
+				maze[r][c].setDir(2, true);
+			}
+			if (right && right->getVal()) {
+				//right
+				maze[r][c].setDir(3, true);
+			}
+		}
+	}
+}
+
 Tile* Maze::getTile(int row, int col) {
 	if (row < 0 || row >= mazeLength || col < 0 || col >= mazeWidth) {
 		return nullptr;
@@ -83,4 +132,12 @@ Tile* Maze::getEnd() {
 
 Maze* Maze::getMaze() {
 	return this;
+}
+
+int Maze::getLength() {
+	return mazeLength;
+}
+
+int Maze::getWidth() {
+	return mazeWidth;
 }

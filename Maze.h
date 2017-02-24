@@ -12,7 +12,7 @@ class Maze {
 public:
 	Maze();
 	
-	Maze(int mazeLength, int mazeWidth);
+	Maze(int mazeLength, int mazeWidth);	//TODO: remove mazeLength, mazeWidth
 	
 	void inputMaze();
 	
@@ -25,6 +25,9 @@ public:
 	
 	Maze* getMaze();
 	
+	int getLength();
+	int getWidth();
+	
 private:
 	std::vector<std::vector<Tile> > maze;
 	Tile* start;
@@ -32,6 +35,8 @@ private:
 	
 	int mazeLength;
 	int mazeWidth;
+	
+	void resolveAdjs();
 };
 
 #endif

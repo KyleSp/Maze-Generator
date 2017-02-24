@@ -3,7 +3,12 @@
 #include "Tile.h"
 
 Tile::Tile(int row, int col) : row(row), col(col), val(0),
-	left(true), top(true), bottom(true), right(true), visited(false) {
+	left(false), top(false), bottom(false), right(false), visited(false) {
+	
+}
+
+Tile::Tile(int row, int col, int val) : row(row), col(col), val(val),
+	left(false), top(false), bottom(false), right(false), visited(false) {
 	
 }
 
@@ -17,22 +22,6 @@ int Tile::getCol() {
 
 int Tile::getVal() {
 	return val;
-}
-
-bool Tile::getLeft() {
-	return left;
-}
-
-bool Tile::getTop() {
-	return top;
-}
-
-bool Tile::getBottom() {
-	return bottom;
-}
-
-bool Tile::getRight() {
-	return right;
 }
 
 bool Tile::getVisited() {
@@ -57,20 +46,20 @@ bool Tile::getDir(int dir) {
 	return false;
 }
 
-void Tile::setLeft(bool left) {
-	this->left = left;
-}
-
-void Tile::setTop(bool top) {
-	this->top = top;
-}
-
-void Tile::setBottom(bool bottom) {
-	this->bottom = bottom;
-}
-
-void Tile::setRight(bool right) {
-	this->right = right;
+void Tile::setDir(int dir, bool val) {
+	if (dir == 0) {
+		//left
+		left = val;
+	} else if (dir == 1) {
+		//top
+		top = val;
+	} else if (dir == 2) {
+		//bottom
+		bottom = val;
+	} else if (dir == 3) {
+		//right
+		right = val;
+	}
 }
 
 void Tile::setVal(int val) {

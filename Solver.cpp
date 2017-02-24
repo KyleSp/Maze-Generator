@@ -31,9 +31,13 @@ void Solver::solve() {
 		addAdjToPQ(current, bottom, 2);
 		addAdjToPQ(current, right, 3);
 		
+		if (pq.empty()) {
+			std::cerr << "no possible solution!\n";
+			break;
+		}
+		
 		//get next tile and pop from priority queue
 		current = pq.top();
-		//current->setVisited();
 		pq.pop();
 		
 		if (current == end) {
@@ -42,11 +46,7 @@ void Solver::solve() {
 		
 		//std::cerr << "current: " << current->getRow() << ", " << current->getCol() << "\n";
 		
-		//showMaze();
-		
-		//TEMP
-		//reachedEnd = true;
-		//TEMP
+		showMaze();
 	}
 	
 	stepsTaken = end->getVal();
@@ -69,11 +69,13 @@ void Solver::addAdjToPQ(Tile* current, Tile* t, int dir) {
 
 //TEMP
 void Solver::showMaze() {
-	for (int r = 0; r < 10; ++r) {
-		for (int c = 0; c < 10; ++c) {
+	std::cerr << "\n";
+	for (int r = 0; r < maze->getLength(); ++r) {
+		for (int c = 0; c < maze->getWidth(); ++c) {
 			std::cerr << maze->getTile(r, c)->getVal() << "\t";
 		}
 		std::cerr << "\n";
 	}
+	std::cerr << "\n";
 }
 //TEMP

@@ -45,7 +45,9 @@ private:
 	
 	void addAdjToPQ(Tile* current, Tile* t, int dir);
 	
+	//TEMP
 	void showMaze();
+	//TEMP
 };
 
 #endif
